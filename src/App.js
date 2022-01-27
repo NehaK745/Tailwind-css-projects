@@ -33,14 +33,15 @@ function App() {
             className="p-2 m-2 bg-green-800 grid gap-4 grid-cols-2 border-gray-600 text-white font-bold text-xl"
           >
             {todo}
-            <button onClick={() => setTodos(todos.filter((todo, i) => i !== index))}
-             className="bg-red-400 hover:bg-red-800 ">X</button>
-           
+            <button
+              onClick={() => setTodos(todos.filter((todo, i) => i !== index))}
+              className="bg-red-400 hover:bg-red-800 "
+            >
+              X
+            </button>
           </li>
-          
         ))}
       </ul>
-      
     </div>
   );
 }
