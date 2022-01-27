@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTodos([...todos, todo]);
+    setTodo("");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col from-blue-600 via-teal-500 to-purple-500 bg-gradient-to-r h-screen items-center justify-center">
+      <h1 className="p-4 font-bold text-white text-3xl">Todo list 📝</h1>
+      <input
+        className="p-2 border-2 border-gray-600 "
+        type="text"
+        placeholder="Add Your todo"
+        value={todo}
+        onChange={(e) => {
+          setTodo(e.target.value);
+        }}
+      />
+      <button
+        onClick={handleSubmit}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded-md shadow-sm focus:outline-none focus:shadow-outline"
+      >
+        Add Task
+      </button>
+      <ul className="p-4">
+        {todos.map((todo, index) => (
+          <li
+            key={index}
+            className="p-2 border-2 border-gray-600 text-white font-bold"
+          >
+            {todo}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
