@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "reactt"
 
 function App() {
   const [todo, setTodo] = useState("");
